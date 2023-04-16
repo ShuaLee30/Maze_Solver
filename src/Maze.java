@@ -12,6 +12,7 @@ public class Maze {
     Maze(String[][] input) {
         maze = input;
         findStartPosition();
+        System.out.println(isOnEdge(1,1));
     }
 
     public void solve() {
@@ -56,11 +57,20 @@ public class Maze {
 
 
     private boolean isOnEdge(int row, int col) {
+
         if (row == 0){
             return true;
         }
 
         if (col == 0){
+            return true;
+        }
+
+        if (row == maze.length - 1){
+            return true;
+        }
+
+        if (col == maze[0].length - 1){
             return true;
         }
 
