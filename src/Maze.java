@@ -78,7 +78,77 @@ public class Maze {
     }
 
     private boolean searchFrom(int startRow, int startCol) {
+
+
         boolean found = false;
+
+        if (maze[startRow][startCol] == EMPTY && isOnEdge(startRow,startCol) == true){
+
+            maze[startRow][startCol] = FINISH;
+
+        } else if (maze[startRow-1][startCol] == EMPTY){
+
+            startRow = startRow - 1;
+            maze[startRow][startCol] = PATH;
+
+        } else if (maze[startRow+1][startCol] == EMPTY){
+
+            startRow = startRow + 1;
+            maze[startRow][startCol] = PATH;
+
+        } else if (maze[startRow][startCol - 1] == EMPTY){
+
+            startCol = startCol - 1;
+            maze[startRow][startCol] = PATH;
+
+        } else if (maze[startRow][startCol + 1] == EMPTY){
+
+            startCol = startCol + 1;
+            maze[startRow][startCol] = PATH;
+
+        }
+
+
+
+        /*
+        if ((maze[startRow][startCol] == EMPTY && isOnEdge(startRow,startCol) == true)){
+
+            maze[startRow][startCol] = FINISH;
+
+        } else if (maze[startRow-1][startCol] == EMPTY){
+
+            maze[startRow+1][startCol] = PATH;
+            startRow = startRow - 1;
+            searchFrom(startRow,startCol);
+
+        } else if (maze[startRow+1][startCol] == EMPTY) {
+
+            maze[startRow-1][startCol] = PATH;
+            startRow = startRow + 1;
+            searchFrom(startRow,startCol);
+
+        } else if (maze[startRow][startCol-1] == EMPTY){
+
+            maze[startRow][startCol-1] = PATH;
+            startCol = startCol - 1;
+            searchFrom(startRow,startCol);
+
+        } else if (maze[startRow][startCol+1] == EMPTY){
+
+            maze[startRow][startCol+1] = PATH;
+            startCol = startCol + 1;
+            searchFrom(startRow,startCol);
+
+        } else if (maze[startRow][startCol] == PATH){
+
+            maze[startRow][startCol] = PATH;
+        }
+        */
+
+
         return found;
     }
+
+
+
 }
